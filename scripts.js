@@ -826,20 +826,3 @@ console.log(check("ai my namn im dijvijaji"));
 
 // -------------------------------------------------------------------
 
-const check = (str) => {
-  const ct = {};
-
-  str = str.split("");
-
-  for (let i = 0; i < str.length; i++) {
-    if (ct[str[i]]) {
-      ct[str[i]] += 1;
-    } else {
-      ct[str[i]] = 1;
-    }
-  }
-
-  return ct;
-};
-
-console.log(check("ai my namn im dijvijaji"));
