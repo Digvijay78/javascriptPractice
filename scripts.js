@@ -154,7 +154,7 @@ const checkPalindrome = (word) => {
   }
 };
 
-console.log(4 - 'a');
+console.log(4 - "a");
 
 console.log(checkPalindrome("A man, a plan, a canal, Panama"));
 console.log(checkPalindrome("racecar"));
@@ -393,7 +393,7 @@ console.log(factorial(5));
 
 // -------------------------------------------------
 
-// repeating string to the number of times given 
+// repeating string to the number of times given
 
 const arr = [];
 const repeating = (str, num) => {
@@ -410,7 +410,7 @@ console.log(newArr.join(""));
 
 // --------------------------------------------------------
 
-// generate an array using Array.from 
+// generate an array using Array.from
 
 const check = (str, num) => {
   return str.split("").splice(0, num).concat("...").join("");
@@ -420,137 +420,117 @@ console.log(check("hi my name is digvijay", 8));
 
 // ------------------------------------------
 
-const numberRange = (num1 , num2) => {
+const numberRange = (num1, num2) => {
+  return Array.from({ length: num2 - num1 + 1 }, (val, index) =>
+    index === 0 ? num1 : (num1 += 1)
+  );
+};
 
-    return Array.from({length : (num2 - num1) + 1}, (val,index) => index === 0 ? num1 : num1 += 1   )
-}
-
-
-
-console.log(numberRange(0,5));
+console.log(numberRange(0, 5));
 // ------------------------------------------------------------------
 
-// generate an array using Array from 
+// generate an array using Array from
 
 const numberRange = (num1, num2) => {
+  return Array.from({ length: num2 - num1 + 1 }, (val, index) =>
+    index === 0 ? num1 : (num1 += 1)
+  );
+};
 
-    return Array.from({length : (num2 - num1) + 1 } , (val, index) => index === 0 ? num1 : num1 += 1 )
-}
-
-
-
-
-
-console.log(numberRange(-2,2));
-
+console.log(numberRange(-2, 2));
 
 // -----------------------------------------
 
-// remove duplicates 
-
+// remove duplicates
 
 const check = (arr) => {
+  return arr.filter((el, index) => arr.indexOf(el) === index);
+};
 
-    return arr.filter((el,index) => arr.indexOf(el) === index )
-}
-
-
-console.log(check([1,2,3,2,2,4,5,4,1,3]))
+console.log(check([1, 2, 3, 2, 2, 4, 5, 4, 1, 3]));
 
 // ---------------------------------
 
-let arr = []
-const number = (a,b) => {
-    
-    if (a === b){
-       return arr.push(a)
-    }
-     else {
-        arr.push(a)
-        a= a + 1
-        return number(a,b)
-     }
-
-}
-number(0,5)
+let arr = [];
+const number = (a, b) => {
+  if (a === b) {
+    return arr.push(a);
+  } else {
+    arr.push(a);
+    a = a + 1;
+    return number(a, b);
+  }
+};
+number(0, 5);
 console.log(arr);
 
 // ------------------------------------------------
 
-
 const check = (str) => {
+  let hasLowercase = false;
+  let hasUppercase = false;
+  let hasDigit = false;
+  // let hasSymbol = false;
 
-    let hasLowercase = false;
-    let hasUppercase = false;
-    let hasDigit = false;
-    // let hasSymbol = false;
+  let a = str.split("");
+  // console.log(a);
 
-    let a = str.split("");
-    // console.log(a);
+  a.forEach((el) => {
+    if (el.charCodeAt(0) >= 65 && el.charCodeAt(0) <= 90) {
+      hasUppercase = true;
+    } else if (el.charCodeAt(0) >= 97 && el.charCodeAt(0) <= 122) {
+      hasLowercase = true;
+    } else if (el.charCodeAt(0) >= 48 && el.charCodeAt(0) <= 57) {
+      hasDigit = true;
+    }
+  });
 
-    a.forEach(el => {
+  let ans = hasLowercase && hasUppercase && hasDigit;
 
-        if(el.charCodeAt(0) >= 65  && el.charCodeAt(0) <= 90){
-            hasUppercase = true
-        } else if (el.charCodeAt(0) >= 97  && el.charCodeAt(0) <= 122){
-            hasLowercase = true
-        } else if (el.charCodeAt(0) >= 48  && el.charCodeAt(0) <= 57){
-            hasDigit = true
-        }
-    })
-
-    let ans = hasLowercase && hasUppercase && hasDigit
-
-    return ans
-}
+  return ans;
+};
 
 console.log(check("as8kdKfl"));
 
 // -------------------------------------------------
 
 const ran = () => {
+  const min = 100000;
+  const max = 999999;
 
-const min = 100000
-const max = 999999
+  const random = Math.floor(Math.random() * (max - min) + 1) + 1;
 
-const random = Math.floor(Math.random() * (max-min)+1) + 1;
-
-const str = `#${random}`
-return str
-
-}
-
+  const str = `#${random}`;
+  return str;
+};
 
 console.log(ran());
 // ------------------------------------------------------------------------------
 
 const remove = (arr) => {
-
   // return arr.filter((el,index,arr) => arr.indexOf(el) === index )
 
-  const newArr = [...new Set(arr)]
+  const newArr = [...new Set(arr)];
   console.log(newArr);
-}
+};
 
-
-console.log(remove([1,2,3,4,2,3,1,2]));
+console.log(remove([1, 2, 3, 4, 2, 3, 1, 2]));
 
 // ------------------------------------------------------
 
 // tp check the if object has a length or not
 
-let obj = {isEmply : null}
+let obj = { isEmply: null };
 
 const check = () => {
-
   console.log(Object.keys(obj).length);
 
-   if(Object.keys(obj).length === 0){
-    return true
-   } else {
-    return false
-   }
-}
+  if (Object.keys(obj).length === 0) {
+    return true;
+  } else {
+    return false;
+  }
+};
 
 // for(let key in obj){
 //   if(obj.hasOwnProperty(key)){
@@ -560,246 +540,220 @@ const check = () => {
 //   }
 // }
 
-
 console.log(check());
 // -----------------------------------------------------------------------
 
-const calculate = (p,r,t) => {
-  let si = Math.floor((p*r*t)/100)
+const calculate = (p, r, t) => {
+  let si = Math.floor((p * r * t) / 100);
   return si;
-}
+};
 
-
-console.log(calculate(1000,5,3));
+console.log(calculate(1000, 5, 3));
 
 // -----------------------------------------------------------------------
 
-const check = (d1,d2) => {
+const check = (d1, d2) => {
+  d1 = new Date(d1);
+  d2 = new Date(d2);
 
-  d1 = new Date(d1)
-  d2 = new Date(d2)
-
-  let diff = Math.abs(d2-d1);
-  let days = Math.floor(diff / (1000 * 60 * 60 * 24))
+  let diff = Math.abs(d2 - d1);
+  let days = Math.floor(diff / (1000 * 60 * 60 * 24));
 
   return days;
-}
+};
 
-console.log(check("2024-01-01" , "2024-02-31"));
+console.log(check("2024-01-01", "2024-02-31"));
 
 // --------------------------------------------------
 
 const check = (d1) => {
+  let currDate = new Date();
+  let mydate = new Date(d1);
 
-  let currDate = new Date()
-  let mydate = new Date(d1)
+  let age = Math.abs(currDate - mydate);
 
-  let age  = Math.abs(currDate - mydate)
-
-  age = Math.floor(age / (1000 * 60 * 60 * 24 * 365))
+  age = Math.floor(age / (1000 * 60 * 60 * 24 * 365));
   console.log(age);
   // console.log(currDate);
-}
+};
 
 console.log(check("2002-07-2"));
 
 // -------------------------------------------------
 
-function makingStar (num) {
-    let star = ""
-  for (let i =0 ; i<num ; i++){
-    star += "*"
+function makingStar(num) {
+  let star = "";
+  for (let i = 0; i < num; i++) {
+    star += "*";
   }
-    
+
   return star;
 }
 const generate = (arr) => {
   let obj = {};
 
-  arr.forEach((el,index,arr) => {
-    obj[index+1] = makingStar(el)
-  })
+  arr.forEach((el, index, arr) => {
+    obj[index + 1] = makingStar(el);
+  });
 
   return obj;
-}
+};
 
-
-console.log(generate([5,3,9,2]));
+console.log(generate([5, 3, 9, 2]));
 // ---------------------------------------------
 const rates = {
   USD: 1,
-  EUR : 0.9,
-  GBP : 0.8,
-  INR : 83.5,
+  EUR: 0.9,
+  GBP: 0.8,
+  INR: 83.5,
+};
 
-}
-
-const convert = (paisa , from , to) => {
-
+const convert = (paisa, from, to) => {
   let amountInUSD = 0;
 
-  if(from === "GBP"){
-    amountInUSD = Math.floor((rates.USD/rates.GBP) * paisa ) 
-  } else if (from === "EUR"){
-    amountInUSD = Math.floor((rates.USD/rates.EUR) * paisa ) 
-  } else if ( from === "INR") {
-    amountInUSD = Math.floor((rates.USD/rates.INR) * paisa )
+  if (from === "GBP") {
+    amountInUSD = Math.floor((rates.USD / rates.GBP) * paisa);
+  } else if (from === "EUR") {
+    amountInUSD = Math.floor((rates.USD / rates.EUR) * paisa);
+  } else if (from === "INR") {
+    amountInUSD = Math.floor((rates.USD / rates.INR) * paisa);
   } else {
-    amountInUSD = paisa
+    amountInUSD = paisa;
   }
 
   let convertedPaisa = 0;
-  if(to === "GBP"){
-    convertedPaisa = amountInUSD * rates.GBP
+  if (to === "GBP") {
+    convertedPaisa = amountInUSD * rates.GBP;
   } else if (to === "EUR") {
-    convertedPaisa = amountInUSD * rates.EUR
+    convertedPaisa = amountInUSD * rates.EUR;
   } else if (to === "INR") {
-    convertedPaisa = amountInUSD * rates.INR
-  } else{
-    convertedPaisa = amountInUSD
+    convertedPaisa = amountInUSD * rates.INR;
+  } else {
+    convertedPaisa = amountInUSD;
   }
 
-  return convertedPaisa
-}
+  return convertedPaisa;
+};
 
-console.log(convert(700, "INR" , "USD"));
+console.log(convert(700, "INR", "USD"));
 
 // ----------------------------------------------------------------
 
-const generate = (a,b) => {
-
+const generate = (a, b) => {
   let arr = [];
-  
-  Array.from({length : (b-a)+1} , (value , index) => {
-    if(a % 3 === 0 && a % 5 ===0){
-      arr.push("fizzbuzz")
-    } 
-    else if(a % 3 === 0){
-      arr.push("fizz")
-    } 
-    else if(a % 5 === 0) {
-      arr.push("buzz")
-    } else{
-      
+
+  Array.from({ length: b - a + 1 }, (value, index) => {
+    if (a % 3 === 0 && a % 5 === 0) {
+      arr.push("fizzbuzz");
+    } else if (a % 3 === 0) {
+      arr.push("fizz");
+    } else if (a % 5 === 0) {
+      arr.push("buzz");
+    } else {
       arr.push(a);
-     }
-   a += 1;
-  })
+    }
+    a += 1;
+  });
 
   return arr;
-}
+};
 
-console.log(generate(12,20));
+console.log(generate(12, 20));
 // --------------------------------------------------------------------------
 
-// find the second largest element 
+// find the second largest element
 
-const arr = [1,4,3,7,9,3,8,3,99,45,23,65];
+const arr = [1, 4, 3, 7, 9, 3, 8, 3, 99, 45, 23, 65];
 
 const check = (arr) => {
-
   let maxIndex = null;
-  let lar = arr.reduce((acc,val,index) => {
-    if(acc < val){
+  let lar = arr.reduce((acc, val, index) => {
+    if (acc < val) {
       maxIndex = index;
       return val;
     }
 
     return acc;
-      
-  } , 0)
-  
+  }, 0);
 
- arr.splice(8,1)
+  arr.splice(8, 1);
   console.log(arr);
 
-   maxIndex = null;
-   lar = arr.reduce((acc,val,index) => {
-    if(acc < val){
+  maxIndex = null;
+  lar = arr.reduce((acc, val, index) => {
+    if (acc < val) {
       maxIndex = index;
       return val;
     }
 
     return acc;
-      
-  } , 0)
+  }, 0);
 
-  return {maxEl : lar , maxIndex : maxIndex}
-  
-
-}
+  return { maxEl: lar, maxIndex: maxIndex };
+};
 
 console.log(check(arr));
-
 
 // -------------------------------------------
 
 // 1.ifnd the max Element
-// 2. find the smallest element 
+// 2. find the smallest element
 // start a loop from smallest to largest , and put the indexOf() whoesever it will return -1 that is our answer
 
 const check = (arr) => {
-
-  let maxi = Math.max(...arr)
-  let mini = Math.min(...arr)
+  let maxi = Math.max(...arr);
+  let mini = Math.min(...arr);
 
   let ans = null;
-  for(let i = mini ; i< maxi ; i++){
-
-    if(arr.indexOf(i) < 0){
+  for (let i = mini; i < maxi; i++) {
+    if (arr.indexOf(i) < 0) {
       ans = i;
     }
   }
- return ans;
-}
+  return ans;
+};
 
-console.log(check([1,2,3,4,5,7,8,9,10]));
+console.log(check([1, 2, 3, 4, 5, 7, 8, 9, 10]));
 
 // ----------------------------------------
 
 //  factorial
 
 const check = (num) => {
-  let arr = Array.from({length : num} , (val,index) => index  + 1)
+  let arr = Array.from({ length: num }, (val, index) => index + 1);
 
-  return arr.reduce((acc, val) => acc = acc * val , 1)
-}
-
+  return arr.reduce((acc, val) => (acc = acc * val), 1);
+};
 
 console.log(check(5));
 
 // ---------------------------------------------------
 
-// check for prime 
+// check for prime
 
 const check = (num) => {
-
-  if(num ===1) return true;
+  if (num === 1) return true;
   else if (num < 1) return false;
   else {
-    for(let i = 2 ; i< num ; i++){
-
-      if(num % i === 0) return false;
+    for (let i = 2; i < num; i++) {
+      if (num % i === 0) return false;
     }
     return true;
   }
-} 
+};
 
 console.log(check(43));
 
 // -------------------------------------------------
 
-// check for vowel 
+// check for vowel
 
 const check = (str) => {
+  let v = ["a", "e", "i", "o", "u"];
+  str = str.split("");
 
-  let v = ['a' , 'e' , 'i' , 'o' , 'u']
-  str = str.split("")
-  
-  return str.filter(el => v.includes(el))
-  
-}
-
+  return str.filter((el) => v.includes(el));
+};
 
 console.log(check("my namz is hukjl hjos"));
 
@@ -808,9 +762,8 @@ console.log(check("my namz is hukjl hjos"));
 // reverse the string
 
 const check = (str) => {
-
-  return str.split("").reverse().join("")
-}
+  return str.split("").reverse().join("");
+};
 
 console.log(check("hi name"));
 
@@ -818,59 +771,75 @@ console.log(check("hi name"));
 
 // find the intersection of an two arrays
 
-const arr1 = [1,2,4,5,4,3,5,6]
+const arr1 = [1, 2, 4, 5, 4, 3, 5, 6];
 
-const arr2 = [6,7,5,2,8,9,9]
+const arr2 = [6, 7, 5, 2, 8, 9, 9];
 
-const check = (arr1,arr2) => {
+const check = (arr1, arr2) => {
+  arr1 = arr1.filter((el, index, arr1) => arr1.indexOf(el) === index);
+  arr2 = arr2.filter((el, index, arr2) => arr2.indexOf(el) === index);
 
-  arr1 = arr1.filter((el,index,arr1) => arr1.indexOf(el) === index)
-  arr2 = arr2.filter((el,index,arr2) => arr2.indexOf(el) === index)
+  const inter = arr1.filter((el) => {
+    return arr2.includes(el);
+  });
 
-  const inter = arr1.filter(el => {
-    return arr2.includes(el)
-  })
+  return inter;
+};
 
-  return inter
-}
-
-console.log(check(arr1,arr2));
+console.log(check(arr1, arr2));
 
 // ----------------------------------------------------------/
 
-// first letter to uppercase 
+// first letter to uppercase
 
 const check = (str) => {
- 
- str = str.split(" ")
+  str = str.split(" ");
 
-  return str.map(el => {
-    return el.charAt(0).toUpperCase() + el.slice(1).toLowerCase()
-  }).join(" ")
-
-}
+  return str
+    .map((el) => {
+      return el.charAt(0).toUpperCase() + el.slice(1).toLowerCase();
+    })
+    .join(" ");
+};
 
 console.log(check("hi my name is digivjay"));
 
 // --------------------------------------------------------------
 
 const check = (str) => {
-
   const ct = {};
 
   str = str.split("");
 
-  for(let i =0 ; i< str.length ; i++){
-
-    if(ct[str[i]]){
+  for (let i = 0; i < str.length; i++) {
+    if (ct[str[i]]) {
       ct[str[i]] += 1;
-     } else {
+    } else {
       ct[str[i]] = 1;
-     }
-  } 
+    }
+  }
 
-  return ct
-}
+  return ct;
+};
 
+console.log(check("ai my namn im dijvijaji"));
+
+// -------------------------------------------------------------------
+
+const check = (str) => {
+  const ct = {};
+
+  str = str.split("");
+
+  for (let i = 0; i < str.length; i++) {
+    if (ct[str[i]]) {
+      ct[str[i]] += 1;
+    } else {
+      ct[str[i]] = 1;
+    }
+  }
+
+  return ct;
+};
 
 console.log(check("ai my namn im dijvijaji"));
