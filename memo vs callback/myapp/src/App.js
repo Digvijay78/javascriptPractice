@@ -18,6 +18,9 @@ function App() {
 
   return (
     <div>
+
+      //todo app 
+      
       <Todo todos={todos} addTodo={addTodo} />
       <div className="container">
         <p>count: {count}</p>
